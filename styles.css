@@ -1,0 +1,33 @@
+html, body { 
+    display: flex;
+    flex-direction: column;
+    font-size: 16px;
+    font-family: monospace, sans-serif, Cambria, Cochin, Georgia, Times, 'Times New Roman';
+    padding: 0;
+    margin: 0;
+    height: 100%;
+}
+
+header {
+    display: flex;
+    font-size: 3rem;
+    font-weight: 600;
+    background-color: #0e7490;
+    height: 20vw;
+    width: 100vw;
+    justify-content: flex-end;
+    align-items: center;
+}
+
+main {
+    background-color: white;
+    height: 80vw;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    grid-auto-rows: 200px;
+    gap: 5px;
+}
+
+main > div {
+    border: 1px solid red;
+}
