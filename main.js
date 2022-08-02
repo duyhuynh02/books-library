@@ -50,53 +50,45 @@ myLibrary.push(thinkingFast);
 myLibrary.push(thinkingSlow);
 
 console.log(myLibrary);
-
-// for (let i = 0; i < myLibrary.length; i++) {
-//     console.log(myLibrary[i]);
-// }
-
 const main = document.querySelector('main');
-console.log(main);
 
-// The card 
-const card = document.createElement('div');
-card.classList.add('card');
+for (let i = 0; i < myLibrary.length; i++) {
+    const card = document.createElement('div');
+    card.classList.add('card');
 
-// The 1st side of card - book name 
-const bookName = document.createElement('div');
-bookName.classList.add('bookName');
-bookName.textContent = myLibrary[0]['title']; 
-card.appendChild(bookName); 
+    const bookName = document.createElement('div');
+    bookName.classList.add('bookName');
+    bookName.textContent = myLibrary[i]['title']; 
+    card.appendChild(bookName); 
 
-// The 2nd side of card - container including author / pages / read or not 
-const container = document.createElement('div');
-container.classList.add('container');
+    const container = document.createElement('div');
+    container.classList.add('container');
 
-// Author
-const author = document.createElement('div');
-author.classList.add('author');
-author.textContent = myLibrary[0]['author'];
-container.appendChild(author);
+    const author = document.createElement('div');
+    author.classList.add('author');
+    author.textContent = myLibrary[i]['author'];
+    container.appendChild(author);
+    
+    // Pages 
+    const pages = document.createElement('div');
+    pages.classList.add('pages');
+    pages.textContent = myLibrary[i]['pages'];
+    container.appendChild(pages);
 
-// Pages 
-const pages = document.createElement('div');
-pages.classList.add('pages');
-pages.textContent = myLibrary[0]['pages'];
-container.appendChild(pages);
+    const isRead = document.createElement('div');
+    isRead.classList.add('isRead');
+    if (myLibrary[i]['isRead'] === true) {
+        isRead.textContent = 'Read'
+    } else {
+        isRead.textContent = 'Not read'
+    }
+    container.appendChild(isRead);
 
-// Read or Not
-const isRead = document.createElement('div');
-isRead.classList.add('pages');
-isRead.textContent = myLibrary[0]['isRead'];
-container.appendChild(isRead);
+    card.appendChild(container);
 
-//Append 2nd side to card 
-card.appendChild(container);
+    //Append card to the main body. 
+    main.appendChild(card);
+}
 
-//Append card to the main body. 
-main.appendChild(card);
-
-
-// console.log(main);
 
 
