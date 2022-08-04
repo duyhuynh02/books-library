@@ -99,10 +99,6 @@ main > div {
     border-radius: 5%;
 }
 
-input {
-    width: 20vw;
-}
-
 select {
     width: 8vw;
 }
@@ -111,8 +107,10 @@ h2 {
     text-align: center;
 }
 
-.btn-add-book {
-    background-color: brown;
+
+.btn-add-book, 
+.btn-exit-book {
+    background-color: burlywood;
     font-size: 1rem;
     font-weight: 700;
     width: 10vw;
