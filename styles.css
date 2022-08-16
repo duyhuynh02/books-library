@@ -56,6 +56,12 @@ main > div {
     justify-content: space-around;
 }
 
+.remove {
+    margin-top: auto;
+    text-align: center;
+    background-color: crimson;
+}
+
 .btn-add {
     border-radius: 50%;
     font-weight: 700;

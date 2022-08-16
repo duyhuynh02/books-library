@@ -6,6 +6,14 @@ const btnAddSection = btnSection.querySelector('.btn-add-book');
 const btnExitSection = btnSection.querySelector('.btn-exit-book');
 const main = document.querySelector('main');
 let myLibrary = [];
+ 
+//Test method 
+const HxH = new Book('Hunter X Hunter', 'Togashi', 312, true);
+myLibrary.push(HxH);
+showBooks(HxH);
+let mainNode = document.querySelector('main');
+console.log(mainNode);
+
 
 
 // The constructor
@@ -37,6 +45,7 @@ function showBooks(book) {
     const card = document.createElement('div');
     card.classList.add('card');
 
+    //The rest is normal html - firgue out yourself... 
     const bookName = document.createElement('div');
     bookName.classList.add('bookName');
     bookName.textContent = book['title']; 
@@ -64,6 +73,12 @@ function showBooks(book) {
     }
     container.appendChild(isRead);
     card.appendChild(container);
+
+    const removeCard = document.createElement('button');
+    removeCard.classList.add('remove');
+    removeCard.dataset.bookIndex = myLibrary.length - 1; //Add book index for remove funct 
+    removeCard.textContent = 'REMOVE'; 
+    card.appendChild(removeCard);
 
     //Append card to the main body. 
     main.appendChild(card);
@@ -97,8 +112,24 @@ function sendBookForm() {
     showBooks(newBook);
 }
 
+function removeNode(e) {
+    // console.log(e.target);
+    // console.log(e.target.dataset.bookIndex);
+    let bookIndex = parseInt(e.target.dataset.bookIndex);
+    myLibrary.splice(bookIndex, 1);
+    render(bookIndex);
+    localStorage.setItem('MyBooksLibrary', JSON.stringify(myLibrary));
+}
+
+function render(index) {
+    let mainNodeList = mainNode.childNodes; 
+    // console.log(mainNodeList);
+    let i = mainNodeList[index];
+    mainNode.removeChild(i);
+}
+
 //Buttons to handle 
 addBtn.addEventListener('click', showBookForm);
 btnExitSection.addEventListener('click', exitBookForm);
 btnAddSection.addEventListener('click', sendBookForm); 
-
+mainNode.addEventListener('click', removeNode);
